@@ -8,6 +8,7 @@ Para consumir a API Consulta CPF, você deverá utilizar os dois códigos (Consu
 Exemplos de códigos:
 
 **Consumer Key**: uldY78ZMvYm4btC0x3XZLG7ZTsYa
+
 **Consumer Secret**: WyUeBFCUK7wu1Ko61V7bb7yB2Uoa
 
 O APIGov utiliza o protocolo de autorização OAUTH2 para disponibilizar o acesso à API Consulta CPF. No exemplo abaixo, estamos utilizando o GranType Cliente Credentials para requisição de token e acesso a API:
