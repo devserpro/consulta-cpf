@@ -27,7 +27,7 @@ curl -k -d "grant_type=client_credentials" -H "Authorization: Basic dWxkWTc4Wk12
 
 A chave informada no exemplo acima "dWxkWTc4Wk12WW00YnRDMHgzWFpMRzdaVHNZYTpXeVVlQkZDVUs3d3UxS282MVY3YmI3eUIyVW9h" é resultado do BASE64 dos códigos Consumer Key e Consumer Secret separados pelo caracter “:”, conforme exemplo a seguir:
 
-```javascript
+```curl
 base64(uldY78ZMvYm4btC0x3XZLG7ZTsYa:WyUeBFCUK7wu1Ko61V7bb7yB2Uoa)
 ```
 
@@ -35,7 +35,7 @@ base64(uldY78ZMvYm4btC0x3XZLG7ZTsYa:WyUeBFCUK7wu1Ko61V7bb7yB2Uoa)
 
 O Gateway informará as informações do Token no seguinte padrão:
 
-```javascript
+```json
 {"scope":"am_application_scope default","token_type":"Bearer","expires_in":3295,"access_token":"c66a7de41c96f7008a0c397dc588b6d7"}
 ```
 
