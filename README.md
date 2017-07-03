@@ -22,7 +22,7 @@ Faça uma requisição POST ao endereço https://apigateway.serpro.gov.br/token 
 [POST] grant_type=client_credentials[HEAD] Authorization: Basic base64(Consumer Key:Consumer Secret)
 Podemos, também, fazer essa chamada via cUrl da seguinte forma:
 
-```javascript
+```curl
 curl -k -d "grant_type=client_credentials" -H "Authorization: Basic dWxkWTc4Wk12WW00YnRDMHgzWFpMRzdaVHNZYTpXeVVlQkZDVUs3d3UxS282MVY3YmI3eUIyVW9h" https://apigateway.serpro.gov.br/token
 ```
 
@@ -52,7 +52,7 @@ O Gateway informará as informações do Token no seguinte padrão:
 
 De posse do Token de Acesso, faça uma requisição via GET ao gateway informando os parâmetros da API. Exemplo:
 
-```javascript
+```curl
 curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999"
 ```
 
