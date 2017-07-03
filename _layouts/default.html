@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }} por {{ site.github.owner_name }}</title>
+    <title><!--{{ site.title | default: site.github.repository_name }} por {{ site.github.owner_name }}-->API Consulta CPF - SERPRO</title>
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <meta name="viewport" content="width=device-width">
@@ -14,8 +14,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        <h1><!--{{ site.title | default: site.github.repository_name }}-->API Consulta CPF</h1>
+        <p><!--{{ site.description | default: site.github.project_tagline }}-->Disponibilizado e comercializado pelo SERPRO</p>
 
         {% if site.github.is_project_page %}
           <p class="view"><a href="{{ site.github.repository_url }}">Veja o projeto no GitHub <small>{{ github_name }}</small></a></p>
