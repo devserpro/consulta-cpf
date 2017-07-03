@@ -1,8 +1,8 @@
-## API Consulta CPF
+# API Consulta CPF
 
 API para acesso ao Cadastro de Pessoas Físicas diretamente das bases da Receita Federal do Brasil.
 
-### Como fazer consultas
+## Como fazer consultas
 
 Para consumir a API Consulta CPF, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
 Exemplos de códigos:
@@ -13,9 +13,8 @@ Exemplos de códigos:
 
 O APIGov utiliza o protocolo de autorização OAUTH2 para disponibilizar o acesso à API Consulta CPF. No exemplo abaixo, estamos utilizando o GranType Cliente Credentials para requisição de token e acesso a API:
 
-#### 1 – Como solicitar o Token de Acesso
+### 1 – Como solicitar o Token de Acesso
 Para consultar a API, um Token deverá ser informado. O Token tem sua validade definida de acordo com a API. Para solicitar o Token, os seguintes procedimentos deverão ser realizados:
-
 
 Informe ao Gateway suas Credenciais de Acesso
 Faça uma requisição POST ao endereço https://apigateway.serpro.gov.br/token informando suas credenciais de acesso:
@@ -48,7 +47,7 @@ O Gateway informará as informações do Token no seguinte padrão:
 
 **access_token**: O token a ser enviado durante a requisição.
 
-#### 2 – Como realizar a consulta à API
+### 2 – Como realizar a consulta à API
 
 De posse do Token de Acesso, faça uma requisição via GET ao gateway informando os parâmetros da API. Exemplo:
 
@@ -77,3 +76,12 @@ Nesse caso, espera-se que a resposta seja a seguinte:
   }
 }
 ```
+
+## Como testar a API
+
+
+## Como contratar a API
+
+
+## Como testar outras APIs
+
