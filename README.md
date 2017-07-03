@@ -58,8 +58,11 @@ curl -X GET --header "Accept: application/json" --header "Authorization: Bearer 
 
 No exemplo acima foram utilizados os seguintes parametros:
 **[HEADER] Accept: application/json** - Informamos o tipo de dados que estamos requerendo, nesse caso JSON
+
 **[HEADER] Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7** - Informamos o token de acesso recebido
+
 **[GET] https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999**: chamamos a url da API informando o CPF. No caso a url é "consulta-cpf/v1/cpf/{numero do CPF}"
+
 Nesse caso, espera-se que a resposta seja a seguinte:
 
 ```json
