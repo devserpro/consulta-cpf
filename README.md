@@ -62,7 +62,7 @@ No exemplo acima foram utilizados os seguintes parametros:
 **[GET] https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999**: chamamos a url da API informando o CPF. No caso a url é "consulta-cpf/v1/cpf/{numero do CPF}"
 Nesse caso, espera-se que a resposta seja a seguinte:
 
-```javascript
+```json
 {
   "ni": "91708635203", 
   "nome": "Nome do CPF 917.086.352-03", 
