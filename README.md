@@ -57,6 +57,7 @@ curl -X GET --header "Accept: application/json" --header "Authorization: Bearer 
 ```
 
 No exemplo acima foram utilizados os seguintes parametros:
+
 **[HEADER] Accept: application/json** - Informamos o tipo de dados que estamos requerendo, nesse caso JSON
 
 **[HEADER] Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7** - Informamos o token de acesso recebido
