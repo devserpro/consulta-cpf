@@ -16,9 +16,6 @@
       <header>
         <h1><!--{{ site.title | default: site.github.repository_name }}-->API Consulta CPF</h1>
         <p><!--{{ site.description | default: site.github.project_tagline }}-->Disponibilizado e comercializado pelo SERPRO</p>
-        <div style="width: 100%; text-align: center;">
-          <img src="/img/logo-consulta-cpf.png" title="API Consulta CPF" />
-        </div>
 
         {% if site.github.is_project_page %}
           <p class="view"><a href="{{ site.github.repository_url }}">Veja o projeto no GitHub <small>{{ github_name }}</small></a></p>
@@ -35,6 +32,11 @@
             <li><a href="{{ site.github.repository_url }}">Ver no <strong>GitHub</strong></a></li>
           </ul>
         {% endif %}
+        
+        <div style="width: 100%; text-align: center;">
+          <img src="../img/logo-consulta-cpf.png" title="API Consulta CPF" />
+        </div>
+        
       </header>
       <section>
 
