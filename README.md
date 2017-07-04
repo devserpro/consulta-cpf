@@ -76,7 +76,7 @@ Nesse caso, espera-se que a resposta seja a seguinte:
 {
   "ni": "91708635203", 
   "nome": "Nome do CPF 917.086.352-03", 
-  "nascimento": "01012015", 
+  "nascimento": "01011975", 
   "situacao": {
     "codigo" : "0", 
     "descricao" : "Regular"
