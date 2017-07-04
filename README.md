@@ -15,8 +15,8 @@ Exemplos de códigos:
 
 **Consumer Secret**: WyUeBFCUK7wu1Ko61V7bb7yB2Uoa
 
-### 1 – Como solicitar o Token de Acesso(Bearer)
-Para consultar a API, é necessário obter um token de acesso temporário(Bearer). Esse token possui um tempo de validade e sempre que expirado, este passo de requisição de um novo token de acesso deve ser repetido. 
+### 1 – Como solicitar o Token de Acesso (Bearer)
+Para consultar a API, é necessário obter um token de acesso temporário (Bearer). Esse token possui um tempo de validade e sempre que expirado, este passo de requisição de um novo token de acesso deve ser repetido. 
 
 Para solicitar o token temporário é necessário realizar uma requisição HTTP POST para o endpoint Token https://apigateway.serpro.gov.br/token, informando as credenciais de acesso(consumerKey:consumerSecret) no HTTP Header Authorization, no formato base64, conforme exemplo abaixo. As credenciais de acesso devem ser obtidas a partir do portal do cliente Serpro - https://minhaconta.serpro.gov.br
 
@@ -47,7 +47,7 @@ Como resultado, o endpoint informará o token de acesso a API, no campo access_t
 
 **Renovação do Token de Acesso**
 
-Atentar que sempre que o token de acesso temporário expirar, o gateway vai retornar um _HTTP CODE 401_ após realizar uma requisição para uma API. Neste caso, deve ser repetido o passo anterior (**Como solicitar o Token de Acesso**) para geração de um novo token de acesso temporário.
+Atentar que sempre que o token de acesso temporário expirar, o gateway vai retornar um _HTTP CODE 401_ após realizar uma requisição para uma API. Neste caso, deve ser repetido o passo anterior (**Como solicitar o Token de Acesso (Bearer)**) para geração de um novo token de acesso temporário.
 
 
 ### 2 – Como realizar a consulta à API
