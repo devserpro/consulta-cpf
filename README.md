@@ -21,9 +21,11 @@ Faça uma requisição POST ao endereço https://apigateway.serpro.gov.br/token 
 [POST] grant_type=client_credentials[HEAD] Authorization: Basic base64(Consumer Key:Consumer Secret)
 Podemos, também, fazer essa chamada via cUrl da seguinte forma:
 
+<div id="curlBearer">
 ```curl
 curl -k -d "grant_type=client_credentials" -H "Authorization: Basic dWxkWTc4Wk12WW00YnRDMHgzWFpMRzdaVHNZYTpXeVVlQkZDVUs3d3UxS282MVY3YmI3eUIyVW9h" https://apigateway.serpro.gov.br/token
 ```
+</div>
 
 A chave informada no exemplo acima "dWxkWTc4Wk12WW00YnRDMHgzWFpMRzdaVHNZYTpXeVVlQkZDVUs3d3UxS282MVY3YmI3eUIyVW9h" é resultado do BASE64 dos códigos Consumer Key e Consumer Secret separados pelo caracter “:”, conforme exemplo a seguir:
 
