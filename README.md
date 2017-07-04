@@ -51,9 +51,11 @@ O Gateway informará as informações do Token no seguinte padrão:
 
 **access_token**: O token a ser enviado durante a requisição.
 
+
 **Renovação do Token de Acesso**
 
 Sempre que o token de acesso temporário expirar, o gateway vai retornar um _HTTP CODE 401_ após realizar uma requisição para uma API. Neste caso, deve ser repetido o passo anterior (**Como solicitar o Token de Acesso**) para geração de um novo token de acesso temporário.
+
 
 ### 2 – Como realizar a consulta à API
 
