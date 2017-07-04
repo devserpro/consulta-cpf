@@ -2,6 +2,10 @@
 
 API para acesso ao Cadastro de Pessoas Físicas diretamente das bases da Receita Federal do Brasil.
 
+## Como funciona a autenticação e autorização
+
+<img title="Processo de autenticação e autorização APIS" src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/oauth.png" style="width=50%;" />
+
 ## Como fazer consultas
 
 Para consumir a API Consulta CPF, você deverá utilizar os dois códigos (Consumer Key e Consumer Secret) disponibilizados na Área do Cliente. Esses códigos servem para identificar o contrato e deverão ser informados sempre que uma consulta for realizada.
