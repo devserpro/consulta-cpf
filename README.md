@@ -4,6 +4,9 @@ API para acesso ao Cadastro de Pessoas Físicas diretamente das bases da Receita
 
 ## Como funciona a autenticação e autorização
 
+Conforme imagem abaixo, o processo de autenticação e autorização de APIs funciona da seguinte maneira:
+AJUDA DO ROGÉRIO AQUI! :D
+
 <img title="Processo de autenticação e autorização APIS" src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/oauth.png" style="width=50%;" />
 
 ## Como fazer consultas
