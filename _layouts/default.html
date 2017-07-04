@@ -106,7 +106,10 @@
     window.onload = function() {
       var bearer = getParameterByName('bearer');
       if (bearer != null) {
-        alert(bearer);
+        var exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999\"";
+        var div = document.getElementsByClassName('language-curlBearer');
+        var divBearer = div[0];
+        divBearer.innerHTML = exec;
       }
     };
     </script>
