@@ -59,7 +59,7 @@ O Gateway informará as informações do Token no seguinte padrão:
 De posse do Token de Acesso, faça uma requisição via GET ao gateway informando os parâmetros da API. Exemplo:
 
 ```curlBearer
-curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999"
+curl -X GET --header "Accept: application/json" --header "Authorization: Bearer c66a7de41c96f7008a0c397dc588b6d7" "https://apigateway.serpro.gov.br/consulta-cpf/v1/cpf/99999999999"
 ```
 
 No exemplo acima foram utilizados os seguintes parametros:
@@ -68,7 +68,7 @@ No exemplo acima foram utilizados os seguintes parametros:
 
 **[HEADER] Authorization: Bearer <span class="bearer">c66a7de41c96f7008a0c397dc588b6d7</span>** - Informamos o token de acesso recebido
 
-**[GET] https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999**: chamamos a url da API informando o CPF. No caso a url é "consulta-cpf/v1/cpf/{numero do CPF}"
+**[GET] https://apigateway.serpro.gov.br/consulta-cpf/v1/cpf/99999999999**: chamamos a url da API informando o CPF. No caso a url é "consulta-cpf/v1/cpf/{numero do CPF}"
 
 Nesse caso, espera-se que a resposta seja a seguinte:
 
