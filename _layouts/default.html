@@ -183,8 +183,14 @@
     }
     window.onload = function() {
       var bearer = getParameterByName('bearer');
-      if (bearer != null) {
-        var exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999\"";
+	  var amb = getParameterByName('amb');
+      if (bearer != null && amb != null) {
+	    var exec;
+		if (amb == 1) {
+			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999\"";
+		} else if (amb == 2) {
+			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf-trial/1/99999999999\"";
+		}
         var div = document.getElementsByClassName('language-curlBearer');
         var divBearer = div[0];
         divBearer.innerHTML = exec;
@@ -197,6 +203,14 @@
     };
     
     document.querySelector('.openPopup').addEventListener('click', function() {
+	
+	var amb = getParameterByName('amb');
+	var urlSwagger;
+	if (amb == 1) {
+		urlSwagger = "https://cdn.rawgit.com/devserpro/consulta-cpf/master/_layouts/swagger-cpf.json";
+	} else if (amb == 2) {
+		urlSwagger = "https://cdn.rawgit.com/devserpro/consulta-cpf/master/_layouts/swagger-cpf-trial.json";
+	}
 	window.scrollTo(0, 0);
 	var jPopupDemo = new jPopup({
 		contentHtml: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">\
@@ -229,7 +243,7 @@
 
 		});
 	    const ui = SwaggerUIBundle({
-				url: "https://cdn.rawgit.com/devserpro/consulta-cpf/master/_layouts/swagger-cpf.json",
+				url: urlSwagger,
 				dom_id: '#swagger-ui',
 				/*onComplete: function(swaggerApi, swaggerUi) {
 					var bearerValue = getParameterByName("bearer"); == null ? '' : getParameterByName("bearer")), "header");
