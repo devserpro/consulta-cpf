@@ -190,7 +190,7 @@
 			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999\"";
 			var div = document.getElementsByClassName('language-trialSpanCPFs');
 			var divTrial = div[0];
-			divTrial.style = 'display: none';
+			divTrial.parentElement.style = 'display: none';
 		} else if (amb == 2) {
 			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf-trial/1/99999999999\"";
 			document.getElementById('trialSpan').innerHTML = ' - TRIAL';

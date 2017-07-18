@@ -82,7 +82,7 @@ Nesse caso, espera-se que a resposta seja a seguinte:
 ```
 
 ```trialSpanCPFs
-### CPF's para ambiente TRIAL:
+CPF's para ambiente TRIAL:
 
 1) 40442820135
 2) 63017285995
@@ -105,5 +105,5 @@ Nesse caso, espera-se que a resposta seja a seguinte:
 19) 08849979878
 20) 58136053391
 
-**Atenção:** Os CPFs acima foram gerados aleatoriamente contendo apenas dados fictícios.
+Atenção: Os CPFs acima foram gerados aleatoriamente contendo apenas dados fictícios.
 ```
