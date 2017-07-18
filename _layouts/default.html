@@ -133,7 +133,7 @@
         <div style="width: 100%; text-align: center;">
           <img src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png" style="width: 70%;" title="API Consulta CPF" />
           <br /><br /><br />
-          <button title="Teste a API" class="openPopup botao01" style="margin-bottom: 10px !important;">DEMONSTRAÇÃO</button> <br />
+          <button title="Teste a API" id="testeApi" class="openPopup botao01" style="margin-bottom: 10px !important;">DEMONSTRAÇÃO</button> <br />
 
 		</div>
         
@@ -192,7 +192,7 @@
         var div2Bearer = div2[0];
         div2Bearer.innerHTML = bearer;
       } else {
-	      
+		document.getElementById("testeApi").style = "display: none";
       }
     };
     
