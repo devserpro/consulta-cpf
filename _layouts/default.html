@@ -188,8 +188,10 @@
 	    var exec;
 		if (amb == 1) {
 			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf/v1/99999999999\"";
+			document.getElementById('trialSpanCPFs').style = 'display: none';
 		} else if (amb == 2) {
 			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf-trial/1/99999999999\"";
+			document.getElementById('trialSpan').innerHTML = ' - TRIAL';
 		}
         var div = document.getElementsByClassName('language-curlBearer');
         var divBearer = div[0];

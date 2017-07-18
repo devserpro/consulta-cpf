@@ -1,4 +1,4 @@
-# API Consulta CPF
+# API Consulta CPF <span id="trialSpan"></span>
 
 API para acesso ao Cadastro de Pessoas Físicas diretamente das bases da Receita Federal do Brasil.
 
@@ -81,3 +81,28 @@ Nesse caso, espera-se que a resposta seja a seguinte:
 }
 ```
 
+<span id="trialSpanCPFs">
+### CPF's para ambiente TRIAL:
+1) 40442820135
+2) 63017285995
+3) 91708635203
+4) 47856021985
+5) 23479805647
+6) 40532176871
+7) 47123586964
+8) 49852036700
+9) 28769150494
+10) 07691852312
+11) 10975384600
+12) 01648527949
+13) 47893062592
+14) 98302514705
+15) 18025346790
+16) 64913872591
+17) 52389071686
+18) 05137518743
+19) 08849979878
+20) 58136053391
+
+**Atenção:** Os CPFs acima foram gerados aleatoriamente contendo apenas dados fictícios.
+</span>
