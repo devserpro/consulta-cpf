@@ -132,8 +132,7 @@
         
         <div style="width: 100%; text-align: center;">
           <img id="imgLogoApi" src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png" style="width: 70%;" title="API Consulta CPF" />
-          <br />
-          <button title="Teste a API" id="testeApi" class="openPopup botao01" style="margin-bottom: 10px !important;">DEMONSTRAÇÃO</button> <br />
+          <button title="Teste a API" id="testeApi" class="openPopup botao01" style="clear: both; margin-top: 15px; margin-bottom: 10px !important;">DEMONSTRAÇÃO</button> <br />
 
 		</div>
         
@@ -216,7 +215,7 @@
 	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 	
 	var divPopUp = document.getElementsByClassName('content');
-	var janelaPopup = div[0];
+	var janelaPopup = divPopUp[0];
 	janelaPopup.style = "height: " + h + "px; width: " + w + "px;";
 	
 	var amb = getParameterByName('amb');
