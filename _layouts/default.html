@@ -211,13 +211,6 @@
     
     document.querySelector('.openPopup').addEventListener('click', function() {
 	
-	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	
-	var divPopUp = document.getElementsByClassName('content');
-	var janelaPopup = divPopUp[0];
-	janelaPopup.style = "height: " + h + "px; width: " + w + "px;";
-	
 	var amb = getParameterByName('amb');
 	var urlSwagger;
 	if (amb == 1) {
@@ -286,14 +279,20 @@
 				  SwaggerUIBundle.plugins.DownloadUrl
 				],
 				layout: "StandaloneLayout"
-			  });
+		});
 
-			  //window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-			  //window.ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-			  window.ui = ui;
+		  //window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
+		  //window.ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
+		  window.ui = ui;
 			  
-			  //var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
-			  //window.authorizations.add('apiKey', authKey);
+		  //var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
+		  //window.authorizations.add('apiKey', authKey);
+		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		
+		var divPopUp = document.getElementsByClassName('content');
+		var janelaPopup = divPopUp[0];
+		janelaPopup.style = "height: " + h + "px; width: " + w + "px;";
     });
     </script>
   </body>
