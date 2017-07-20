@@ -299,6 +299,11 @@
 		
 		var divPopUp = document.getElementsByClassName('content');
 		var janelaPopup = divPopUp[0];
+		
+		var alt = (y*2);
+		var marginTop = (653 * alt)/1300;
+		document.getElementById('swagger-ui').style="margin-top: " + marginTop + "px; height: 100%; width: 100%;"
+		
 		janelaPopup.style = "height: " + (y*2) + "px; width: " + x + "px;";
     });
     </script>
