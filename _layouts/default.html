@@ -131,7 +131,7 @@
         {% endif %}
         
         <div style="width: 100%; text-align: center;">
-          <img src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png" style="width: 70%;" title="API Consulta CPF" />
+          <img id="imgLogoApi" src="https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png" style="width: 70%;" title="API Consulta CPF" />
           <br /><br /><br />
           <button title="Teste a API" id="testeApi" class="openPopup botao01" style="margin-bottom: 10px !important;">DEMONSTRAÇÃO</button> <br />
 
@@ -191,9 +191,13 @@
 			var div = document.getElementsByClassName('language-trialSpanCPFs');
 			var divTrial = div[0];
 			divTrial.parentElement.style = 'display: none';
+			var logoImg = document.getElementsById("imgLogoApi");
+			logoImg.src = "https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png";
 		} else if (amb == 2) {
 			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf-trial/1/99999999999\"";
 			document.getElementById('trialSpan').innerHTML = ' - TRIAL';
+			var logoImg = document.getElementsById("imgLogoApi");
+			logoImg.src = "https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf-trial.png";
 		}
         var div = document.getElementsByClassName('language-curlBearer');
         var divBearer = div[0];
