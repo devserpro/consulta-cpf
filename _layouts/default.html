@@ -287,12 +287,19 @@
 			  
 		  //var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
 		  //window.authorizations.add('apiKey', authKey);
-		var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		//var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		//var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		
+		var w = window,
+		d = document,
+		e = d.documentElement,
+		g = d.getElementsByTagName('body')[0],
+		x = w.innerWidth || e.clientWidth || g.clientWidth,
+		y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 		
 		var divPopUp = document.getElementsByClassName('content');
 		var janelaPopup = divPopUp[0];
-		janelaPopup.style = "height: " + h + "px; width: " + w + "px;";
+		janelaPopup.style = "height: " + y + "px; width: " + x + "px;";
     });
     </script>
   </body>
