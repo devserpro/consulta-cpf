@@ -191,11 +191,13 @@
 			divTrial.parentElement.style = 'display: none';
 			var logoImg = document.getElementById("imgLogoApi");
 			logoImg.src = "https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf.png";
+			document.getElementById('trialSpanUrl').innerHTML = '';
 		} else if (amb == 2) {
 			exec = "curl -X GET --header \"Accept: application/json\" --header \"Authorization: Bearer " + bearer +"\" \"https://apigateway.serpro.gov.br/consulta-cpf-trial/1/99999999999\"";
 			document.getElementById('trialSpan').innerHTML = ' - TRIAL';
 			var logoImg = document.getElementById("imgLogoApi");
 			logoImg.src = "https://raw.githubusercontent.com/devserpro/consulta-cpf/master/img/logo-consulta-cpf-trial.png";
+			document.getElementById('trialSpanUrl').innerHTML = '-trial';
 		}
         var div = document.getElementsByClassName('language-curlBearer');
         var divBearer = div[0];
