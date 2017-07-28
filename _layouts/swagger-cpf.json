@@ -50,6 +50,6 @@
     },
   "info":{
     "title":"Consulta CPF",
-    "description":"#Consulta CPF\n# API de acesso aos dados do Cadastro Nacional de Pessoa Física, em tempo real, diretamente das bases de Governo. \n#destaque",
+    "description":"API de acesso aos dados do Cadastro Nacional de Pessoa Física, em tempo real, diretamente das bases de Governo. \nToda consulta realizada nesta janela será tarifada.",
     "version":"1"}
 }
