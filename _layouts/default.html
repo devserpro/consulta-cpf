@@ -217,7 +217,7 @@
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
 	  divTrial.addEventListener("keydown", function(e) {
-	  
+	    alert(e.keyCode);
 		if (e.keyCode == 67) {
 			var idReq = getParameterByName('id');
 			var amb = getParameterByName('amb');
