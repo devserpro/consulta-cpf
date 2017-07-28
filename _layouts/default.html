@@ -216,19 +216,10 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.addEventListener("keypress", eventoKeyPress);
-    };
-	
-	function eventoKeyPress(e) {
-	
-		var idReq = getParameterByName('id');
-		var amb = getParameterByName('amb');
-		ga('send', 'event', {
-			eventCategory: 'Trial',
-			eventAction: 'copiaDadosMock',
-			eventLabel: "Id: " + idReq + " | Ambiente: " + amb
+	  divTrial.addEventListener("keypress", function(e) {
+			alert('keypress:' + e.keyCode);
 		});
-	}
+    };
     
     document.querySelector('.openPopup').addEventListener('click', function() {
 	
