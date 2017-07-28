@@ -216,14 +216,17 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.parentElement.addEventListener("click", function(e) {
-		var idReq = getParameterByName('id');
-		var amb = getParameterByName('amb');
-		ga('send', 'event', {
-			eventCategory: 'Trial',
-			eventAction: 'clickDadosMock',
-			eventLabel: "Id: " + idReq + " | Ambiente: " + amb
-		});
+	  divTrial.parentElement.addEventListener("keydown", function(e) {
+	  
+		if (e.keyCode == 67) {
+			var idReq = getParameterByName('id');
+			var amb = getParameterByName('amb');
+			ga('send', 'event', {
+				eventCategory: 'Trial',
+				eventAction: 'ctrlCDadosMock',
+				eventLabel: "Id: " + idReq + " | Ambiente: " + amb
+			});
+		}
 	  });
     };
     
