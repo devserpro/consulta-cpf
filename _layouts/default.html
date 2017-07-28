@@ -213,7 +213,22 @@
       } else {
 		document.getElementById("testeApi").style = "display: none";
       }
+
+	  var div = document.getElementsByClassName('language-trialSpanCPFs');
+	  var divTrial = div[0];
+	  divTrial.addEventListener("keyPress", eventoKeyPress);
     };
+	
+	function eventoKeyPress() {
+	
+		var idReq = getParameterByName('id');
+		var amb = getParameterByName('amb');
+		ga('send', 'event', {
+			eventCategory: 'Trial',
+			eventAction: 'copiaDadosMock',
+			eventLabel: "Id: " + idReq + " | Ambiente: " + amb
+		});
+	}
     
     document.querySelector('.openPopup').addEventListener('click', function() {
 	
