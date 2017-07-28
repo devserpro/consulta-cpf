@@ -106,6 +106,10 @@
 	.swagger-ui .swagger-container {
 		margin-bottom: 10px !important;
 	}
+	
+	.wrapper > section {
+		width: 100% !important;
+	}
     </style>
   </head>
   <body>
@@ -216,8 +220,7 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.parentElement.addEventListener("keypress", function(e) {
-	    alert('aeee');
+	  divTrial.addEventListener("keypress", function(e) {
 		if (e.keyCode == 67) {
 			var idReq = getParameterByName('id');
 			var amb = getParameterByName('amb');
