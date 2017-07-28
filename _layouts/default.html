@@ -216,10 +216,10 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.addEventListener("keyDown", eventoKeyPress);
+	  divTrial.addEventListener("keypress", eventoKeyPress);
     };
 	
-	function eventoKeyPress() {
+	function eventoKeyPress(e) {
 	
 		var idReq = getParameterByName('id');
 		var amb = getParameterByName('amb');
