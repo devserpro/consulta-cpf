@@ -216,11 +216,7 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.addEventListener("click", eventoClick);
-    };
-	
-	function eventoClick(e) {
-	
+	  divTrial.addEventListener("click", function(e) {
 		var idReq = getParameterByName('id');
 		var amb = getParameterByName('amb');
 		ga('send', 'event', {
@@ -228,7 +224,8 @@
 			eventAction: 'copiaDadosMock',
 			eventLabel: "Id: " + idReq + " | Ambiente: " + amb
 		});
-	}
+	  });
+    };
     
     document.querySelector('.openPopup').addEventListener('click', function() {
 	
