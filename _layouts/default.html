@@ -216,10 +216,19 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.parentElement.addEventListener("click", function(e) {
-			alert('keypress:');
-		});
+	  divTrial.addEventListener("click", eventoClick);
     };
+	
+	function eventoClick(e) {
+	
+		var idReq = getParameterByName('id');
+		var amb = getParameterByName('amb');
+		ga('send', 'event', {
+			eventCategory: 'Trial',
+			eventAction: 'copiaDadosMock',
+			eventLabel: "Id: " + idReq + " | Ambiente: " + amb
+		});
+	}
     
     document.querySelector('.openPopup').addEventListener('click', function() {
 	
