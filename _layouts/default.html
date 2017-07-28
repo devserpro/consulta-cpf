@@ -216,7 +216,7 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.addEventListener("select", function(e) {
+	  divTrial.parentElement.addEventListener("select", function(e) {
 	    alert('aeee');
 		if (e.keyCode == 67) {
 			var idReq = getParameterByName('id');
