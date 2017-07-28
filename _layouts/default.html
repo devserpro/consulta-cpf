@@ -216,7 +216,7 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.addEventListener("keypress", function(e) {
+	  divTrial.parentElement.addEventListener("keypress", function(e) {
 			alert('keypress:' + e.keyCode);
 		});
     };
