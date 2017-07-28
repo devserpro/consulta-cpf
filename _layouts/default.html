@@ -216,7 +216,7 @@
 
 	  var div = document.getElementsByClassName('language-trialSpanCPFs');
 	  var divTrial = div[0];
-	  divTrial.addEventListener("click", function(e) {
+	  divTrial.parentElement.addEventListener("click", function(e) {
 		var idReq = getParameterByName('id');
 		var amb = getParameterByName('amb');
 		ga('send', 'event', {
