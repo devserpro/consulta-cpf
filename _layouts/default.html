@@ -217,7 +217,13 @@
     
     document.querySelector('.openPopup').addEventListener('click', function() {
 	
+	var idReq = getParameterByName('id');
 	var amb = getParameterByName('amb');
+	ga('send', 'event', {
+		eventCategory: 'Demonstração',
+		eventAction: 'openModal',
+		eventLabel: "Id: " + idReq + " | Ambiente: " + amb;
+	});
 	var urlSwagger;
 	if (amb == 1) {
 		urlSwagger = "https://cdn.rawgit.com/devserpro/consulta-cpf/master/_layouts/swagger-cpf.json";
