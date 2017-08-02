@@ -267,20 +267,6 @@
 	    const ui = SwaggerUIBundle({
 				url: urlSwagger,
 				dom_id: '#swagger-ui',
-				/*onComplete: function(swaggerApi, swaggerUi) {
-					var bearerValue = getParameterByName("bearer"); == null ? '' : getParameterByName("bearer")), "header");
-					if (bearerValue != null) {
-						var key = 'Bearer ' +  bearerValue;
-						var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
-						swaggerApi.clientAuthorizations.add("api_key", apiKeyAuth);
-						log("added key " + key);
-						alert(key);
-						document.getElementById("txtBearer").value = 'Bearer ' +  bearerValue;
-					}
-				},*/
-				//onComplete: alert('Bearer ' +  getParameterByName("bearer")) /*document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer")*/,
-				//onComplete: recuperarBearer(),
-				//onLoad: document.getElementById("txtBearer").value = 'Bearer ' +  getParameterByName("bearer"),
 				"securityDefinitions": {
 					"login": {
 						"type": "oauth2"
@@ -294,32 +280,25 @@
 				  SwaggerUIBundle.plugins.DownloadUrl
 				],
 				layout: "StandaloneLayout"
-		});
+			});
 
-		  //window.swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-		  //window.ui.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("Authorization", 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), "header"));
-		  window.ui = ui;
-			  
-		  //var authKey = new ApiKeyAuthorization('Authorization', 'Bearer ' + (getParameterByName("bearer") == null ? '' : getParameterByName("bearer")), 'header');
-		  //window.authorizations.add('apiKey', authKey);
-		//var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-		//var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-		
-		var w = window,
-		d = document,
-		e = d.documentElement,
-		g = d.getElementsByTagName('body')[0],
-		x = w.innerWidth || e.clientWidth || g.clientWidth,
-		y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-		
-		var divPopUp = document.getElementsByClassName('content');
-		var janelaPopup = divPopUp[0];
-		
-		var alt = (y*2);
-		var marginTop = (653 * alt)/1300;
-		document.getElementById('swagger-ui').style="margin-top: " + marginTop + "px; height: 100%; width: 100%;"
-		
-		janelaPopup.style = "height: " + (y*2) + "px; width: " + x + "px;";
+			window.ui = ui;
+			
+			var w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			x = w.innerWidth || e.clientWidth || g.clientWidth,
+			y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+			
+			var divPopUp = document.getElementsByClassName('content');
+			var janelaPopup = divPopUp[0];
+			
+			var alt = (y*2);
+			var marginTop = (653 * alt)/1300;
+			document.getElementById('swagger-ui').style="margin-top: " + marginTop + "px; height: 100%; width: 100%;"
+			
+			janelaPopup.style = "height: " + (y*2) + "px; width: " + x + "px;";
     });
     </script>
   </body>
