@@ -241,6 +241,13 @@
 				</video>\
 			'
 		});
+		
+		var w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			x = w.innerWidth || e.clientWidth || g.clientWidth,
+			y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 		var divPopUp = document.getElementsByClassName('content');
 		var janelaPopup = divPopUp[0];
 		var alt = (y*2);
