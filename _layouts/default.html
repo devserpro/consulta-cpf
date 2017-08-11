@@ -233,16 +233,9 @@
 			eventAction: 'play',
 			eventLabel: "Id: " + idReq + " | Ambiente: " + amb
 		});
-		
-		var player = document.getElementById('video');
-		var mp4Vid = document.getElementById('videoSource');
-		player.pause();
-		mp4Vid.src = 'https://github.com/devserpro/consulta-cpf/blob/master/API%20CPF.mp4?raw=true';
-		player.load();
-		player.play();
 		window.scrollTo(0, 0);
 		var jPopupDemo2 = new jPopup({
-			contentHtml:'<video id="video" style="width: 100% !important; height: 100% !important;" controls>\
+			contentHtml:'<video src="https://github.com/devserpro/consulta-cpf/blob/master/API%20CPF.mp4?raw=true" id="video" style="width: 100% !important; height: 100% !important;" controls>\
 					<source id="videoSource" type="video/mp4" />\
 					Seu navegador não suporta videos HTML5.\
 				</video>\
