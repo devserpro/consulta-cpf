@@ -235,7 +235,7 @@
 		});
 		window.scrollTo(0, 0);
 		var jPopupDemo2 = new jPopup({
-			contentHtml:'<video src="https://github.com/devserpro/consulta-cpf/blob/master/API%20CPF.mp4?raw=true" id="video" style="width: 100% !important; height: 100% !important;" controls>\
+			contentHtml:'<video src="https://github.com/devserpro/consulta-cpf/blob/master/API%20CPF.mp4?raw=true" id="video" controls>\
 					<source id="videoSource" type="video/mp4" />\
 					Seu navegador não suporta videos HTML5.\
 				</video>\
@@ -251,9 +251,9 @@
 		var divPopUp = document.getElementsByClassName('content');
 		var janelaPopup = divPopUp[0];
 		var alt = (y*2);
-		var marginTop = (303 * alt)/1300;
+		var marginTop = (653 * alt)/1300;
 		document.getElementById('video').style="margin-top: " + marginTop + "px; height: 100%; width: 100%;"
-		janelaPopup.style = "height: " + (y*2) + "px; width: " + x + "px;";
+		janelaPopup.style = "height: " + (y*2) + "px; width: " + x + "px; text-align: center;";
 		
 	});
     
