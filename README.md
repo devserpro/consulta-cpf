@@ -75,8 +75,8 @@ Nesse caso, espera-se que a resposta seja a seguinte:
   "nome": "Nome do CPF 917.086.352-03", 
   "nascimento": "01011975", 
   "situacao": {
-    "codigo" : "0", 
-    "descricao" : "Regular"
+    "codigo": "3",
+    "descricao": "TITULAR FALECIDO"
   },
   "obito": "2008"
 }
