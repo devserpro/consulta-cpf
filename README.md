@@ -77,7 +77,8 @@ Nesse caso, espera-se que a resposta seja a seguinte:
   "situacao": {
     "codigo" : "0", 
     "descricao" : "Regular"
-  }
+  },
+  "obito": "2008"
 }
 ```
 
