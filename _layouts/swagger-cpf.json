@@ -1,55 +1,101 @@
 {
-  "basePath":"/consulta-cpf/v1", 
-  "paths":{
-    "/cpf/{ni}":{
-      "get":{
-        "x-auth-type":"Bearer",
-        "x-throttling-tier":"Unlimited",
-        "description":"Retorna os dados do Cadastro de Pessoa Física (CPF)",
-        "produces":["application/json"],
-        "parameters":[{
-          "description":"Número de inscrição no CPF",
-          "name":"ni",
-          "type":"string",
-          "required":true,
-          "in":"path"}],
-        "responses":{
-          "200":{
-            "schema":{
-              "$ref":"#/definitions/CPF"},
-            "description":"Retorna dados do CPF"},
-          "400":{
-            "description":"O número de CPF informado não é válido."},
-          "404":{
-            "description":"Não existe CPF com o número de inscrição informado."}}}}},
-  "host":"apigateway.serpro.gov.br",
-  "security":[{"Bearer": []}],
-  "schemes":["https","http"],
-  "swagger":"2.0",
-  "definitions":{
-    "CPF":{
-      "properties":{
-        "situacao":{
-          "$ref":"#/definitions/Situacao"},
-        "nome":{"type":"string"},
-        "ni":{"type":"string"}},
-      "type":"object"},
-    "Situacao":{
-      "properties":{
-        "codigo":{
-          "type":"string"},
-        "descricao":{
-          "type":"string"}},
-      "type":"object"}},
-  "consumes":["application/json"],
-  "securityDefinitions":{
-      "Bearer" : {
+  "host": "apigateway.serpro.gov.br",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
       "type": "apiKey",
       "name": "Authorization",
-      "in": "header" }
-    },
-  "info":{
-    "title":"Consulta CPF",
-    "description":"API de acesso aos dados do Cadastro Nacional de Pessoa Física, em tempo real, diretamente das bases de Governo. \nToda consulta realizada nesta janela será tarifada.",
-    "version":"1"}
+      "in": "header"
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Consulta Massiva CPF (consulta-cpf)",
+    "description": "O serviço `Consulta Massiva CPF` é disponibilizado através do `HTTP REST` oferencendo operação de consulta às informações cadastrais de Pessoas Físicas no Brasil.\n## Códigos de Retorno\n| Código de retorno | Resumido | Explicação |\n| ------------- |:--------------------|:-----------------------------------------------------------------------------|\n| 200           | OK                  | Tudo funcionou como esperado e as informações de Pessoa Física foram disponibilizadas.                                               |\n| 400           | Requisição inválida | O Número de Inscrição do CPF informado não é válido. |\n| 404           | Não encontrado      | Não existe CPF com o Número de Inscrição informado |\n| 500           | Erro no servidor    | Ocorreu algum erro interno.      |\n| 503           | Serviço Indisponível     |  Algum serviço integrado ao Consulta Massiva CPF está indisponível no momento.                         |\n\n## Tipos de Campos Retornados\n\n| Tipos de campos | Valor de retorno |\n| ---------------------- | :------------------------------------------------------------- |\n| NI        | Número de Inscrição no Cadastro de Pessoa Física, no formato 99999999999 |\n| Nome     | Nome da Pessoa Física  |\n| Nascimento | Data de Nascimento da Pessoa Física, no formado DDMMAAAA  |\n| Ano de Óbito | Ano de Óbito da Pessoa Física, caso possua |\n| Situação | Situação Cadastral da Pessoa Física, formada por dois campos: Código e Descrição.|\n| Situação/Código | Código da Situação Cadastral da Pessoa Física |\n| Situação/Descrição | Descrição da Situação Cadastral da Pessoa Física |\n\n --------------------------\n \n \n ## Tipos de Situação Cadastral Retornados\n\n\n| Código | Descrição |\n| ---------------------- | :------------------------------------------------------------- |\n| 0 | Regular |\n| 1 | Cancelada por Encerramento de Espólio |\n| 2 | Suspensa  |\n| 3 | Titular Falecido  |\n| 4 | Pendente de Regularização |\n| 5 | Cancelada por Multiplicidade |\n| 8 | Nula |\n| 9 | Cancelada de Ofício |\n\n --------------------------     \n \n \n## Produção\n### Endereço de Produção\n \n    https://apigateway.serpro.gov.br/consulta-cpf/v1/\n    \n## Degustação\n\n    \n\n### Endereço de Degustação\n\n    https://apigateway.serpro.gov.br/consulta-cpf-trial/1/\n    \n### NI para Degustação\n| NI | Informações de Retorno |\n| ---------------------- | :------------------------------------------------------------- |\n| 40442820135 | CPF Regular |\n| 63017285995 | CPF Regular |\n| 91708635203 | CPF Regular  |\n| 47856021985 | Cancelada por Encerramento de Espólio  |\n| 23479805647 | Cancelada por Encerramento de Espólio |\n| 40532176871 | Suspensa |\n| 47123586964 | Suspensa |\n| 49852036700 | Cancelada por Õbito Sem Espólio |\n| 28769150494 | Cancelada por Õbito Sem Espólio |\n| 07691852312 | Pendente de Regularização |\n| 10975384600 | Pendente de Regularização |\n| 01648527949 | Cancelada por Multiplicidade |\n| 47893062592 | Cancelada por Multiplicidade |\n| 98302514705 | Nula |    \n| 18025346790 | Nula |\n| 64913872591 | Cancelada de Ofício |\n| 52389071686 | Cancelada de Ofício |\n| 05137518743 | Titular Falecido |\n| 08849979878 | Titular Falecido |\n| 58136053391 | Regular |    \n --------------------------     \n\n## Exemplo\n\n  #### Chamada\n  \n    https://apigateway.serpro.gov.br/consulta-cpf-trial/1/cpf/40442820135\n    \n  #### Retorno\n  \n    {\n      \"ni\":\"40442820135\",\n      \"nome\":\"Nome do CPF 404.428.201-35\",\n      \"nascimento\":\"10021986\",\n      \"situacao\":\n      {\n        \"codigo\":\"0\",\n        \"descricao\":\"Regular\"\n      }\n    }"
+  },
+  "basePath": "/consulta-cpf/v1",
+  "paths": {
+    "/cpf/{ni}": {
+      "get": {
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "Retorna os dados do Cadastro de Pessoa Física (CPF)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Número de inscrição no CPF",
+            "name": "ni",
+            "type": "string",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Pessoa Física",
+            "schema": {
+              "$ref": "#/definitions/CPF"
+            }
+          },
+          "400": {
+            "description": "O número de CPF informado não é válido."
+          },
+          "404": {
+            "description": "Não existe CPF com o número de inscrição informado."
+          },
+          "500": {
+            "description": "Erro interno do Serviço"
+          },
+          "503": {
+            "description": "Erro em algum serviço de integração utilizado pelo Consulta CPF"
+          }
+        }
+      }
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "definitions": {
+    "CPF": {
+      "type": "object",
+      "properties": {
+        "ni": {
+          "type": "string",
+          "description": "Ex: 99999999999"
+        },
+        "nome": {
+          "type": "string",
+          "description": "Ex: PESSOA FISICA DA SILVA"
+        },
+        "nascimento": {
+          "type": "string",
+          "description": "Ex: 31121980"
+        },
+        "situacao": {
+          "properties": {
+            "codigo": {
+              "type": "string",
+              "description": "Ex: 0"
+            },
+            "descricao": {
+              "type": "string",
+              "description": "Ex: REGULAR"
+            }
+          }
+        },
+        "obito": {
+          "type": "string",
+          "description": "Ex: 2012"
+        }
+      }
+    }
+  }
 }
