@@ -1,0 +1,225 @@
+host: apigateway.serpro.gov.br
+security:
+  - Bearer: []
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Consulta Massiva CPF (consulta-cpf)
+  description: >-
+    O serviço `Consulta Massiva CPF` é disponibilizado através do `HTTP REST` oferencendo operação
+    de consulta às informações cadastrais de Pessoas Físicas no Brasil.
+    
+    ## Códigos de Retorno
+    
+    | Código de retorno | Resumido | Explicação |
+
+    | -------------
+    |:--------------------|:-----------------------------------------------------------------------------|
+
+    | 200           | OK                  | Tudo funcionou como esperado e as informações de Pessoa Física
+    foram disponibilizadas.                                               |
+
+    | 400           | Requisição inválida | O Número de Inscrição do CPF informado não é válido. |
+
+    | 404           | Não encontrado      | Não existe CPF com o Número de Inscrição informado |
+
+    | 500           | Erro no servidor    | Ocorreu algum erro interno.      |
+
+    | 503           | Serviço Indisponível     |  Algum serviço integrado ao
+    Consulta Massiva CPF está indisponível no momento.                         |
+    
+    
+    ## Tipos de Campos Retornados
+
+
+    | Tipos de campos | Valor de retorno |
+
+    | ---------------------- |
+    :------------------------------------------------------------- |
+
+    | NI        | Número de Inscrição no Cadastro de Pessoa Física, no formato 99999999999 |
+
+    | Nome     | Nome da Pessoa Física  |
+    
+    | Nascimento | Data de Nascimento da Pessoa Física, no formado DDMMAAAA  |
+    
+    | Ano de Óbito | Ano de Óbito da Pessoa Física, caso possua |
+    
+    | Situação | Situação Cadastral da Pessoa Física, formada por dois campos: Código e Descrição.|
+    
+    | Situação/Código | Código da Situação Cadastral da Pessoa Física |
+    
+    | Situação/Descrição | Descrição da Situação Cadastral da Pessoa Física |
+
+     --------------------------
+     
+     
+     ## Tipos de Situação Cadastral Retornados
+
+   
+    | Código | Descrição |
+
+    | ---------------------- |
+    :------------------------------------------------------------- |
+
+    | 0 | Regular |
+
+    | 1 | Cancelada por Encerramento de Espólio |
+    
+    | 2 | Suspensa  |
+    
+    | 3 | Titular Falecido  |
+    
+    | 4 | Pendente de Regularização |
+    
+    | 5 | Cancelada por Multiplicidade |
+    
+    | 8 | Nula |
+    
+    | 9 | Cancelada de Ofício |
+
+     --------------------------     
+     
+     
+    ## Produção
+    
+    ### Endereço de Produção
+     
+        https://apigateway.serpro.gov.br/consulta-cpf/v1/
+        
+    ## Degustação
+    
+        
+    
+    ### Endereço de Degustação
+    
+        https://apigateway.serpro.gov.br/consulta-cpf-trial/1/
+        
+    ### NI para Degustação
+    
+    | NI | Informações de Retorno |
+
+    | ---------------------- |
+    :------------------------------------------------------------- |
+
+    | 40442820135 | CPF Regular |
+
+    | 63017285995 | CPF Regular |
+    
+    | 91708635203 | CPF Regular  |
+    
+    | 47856021985 | Cancelada por Encerramento de Espólio  |
+    
+    | 23479805647 | Cancelada por Encerramento de Espólio |
+    
+    | 40532176871 | Suspensa |
+    
+    | 47123586964 | Suspensa |
+    
+    | 49852036700 | Cancelada por Õbito Sem Espólio |
+
+    | 28769150494 | Cancelada por Õbito Sem Espólio |
+    
+    | 07691852312 | Pendente de Regularização |
+    
+    | 10975384600 | Pendente de Regularização |
+    
+    | 01648527949 | Cancelada por Multiplicidade |
+    
+    | 47893062592 | Cancelada por Multiplicidade |
+    
+    | 98302514705 | Nula |    
+    
+    | 18025346790 | Nula |
+    
+    | 64913872591 | Cancelada de Ofício |
+    
+    | 52389071686 | Cancelada de Ofício |
+    
+    | 05137518743 | Titular Falecido |
+    
+    | 08849979878 | Titular Falecido |
+    
+    | 58136053391 | Regular |    
+     --------------------------     
+
+    ## Exemplo
+    
+      #### Chamada
+      
+        https://apigateway.serpro.gov.br/consulta-cpf-trial/1/cpf/40442820135
+        
+      #### Retorno
+      
+        {
+          "ni":"40442820135",
+          "nome":"Nome do CPF 404.428.201-35",
+          "nascimento":"10021986",
+          "situacao":
+          {
+            "codigo":"0",
+            "descricao":"Regular"
+          }
+        }
+    
+
+basePath: /consulta-cpf/v1
+paths:
+  '/cpf/{ni}':
+    get:
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      description: Retorna os dados do Cadastro de Pessoa Física (CPF)
+      produces:
+        - application/json
+      parameters:
+        - description: Número de inscrição no CPF
+          name: ni
+          type: string
+          required: true
+          in: path
+      responses:
+        '200':
+          description: Retorna os dados da Pessoa Física
+          schema:
+            $ref: "#/definitions/CPF"
+        '400':
+          description: O número de CPF informado não é válido.
+        '404':
+          description: Não existe CPF com o número de inscrição informado.
+        '500':
+          description: Erro interno do Serviço
+        '503':
+          description: Erro em algum serviço de integração utilizado pelo Consulta CPF
+consumes:
+  - application/json          
+  
+definitions:
+  CPF:
+    type: object
+    properties:
+      ni:
+        type: string
+        description: "Ex: 99999999999"
+      nome:
+        type: string
+        description: "Ex: PESSOA FISICA DA SILVA"
+      nascimento:
+        type: string
+        description: "Ex: 31121980"
+      situacao:
+        properties:
+          codigo:
+            type: string
+            description: "Ex: 0"
+          descricao:
+            type: string 
+            description: "Ex: REGULAR"
+      obito:
+        type: string
+        description: "Ex: 2012"
