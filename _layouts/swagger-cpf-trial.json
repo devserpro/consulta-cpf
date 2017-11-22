@@ -41,7 +41,8 @@
           "200": {
             "description": "Retorna os dados da Pessoa Física",
             "schema": {
-              "$ref": "#/definitions/CPF"
+              "$ref": "#/
+              /CPF"
             }
           },
           "400": {
@@ -63,6 +64,9 @@
   "consumes": [
     "application/json"
   ],
+  "schemes": [
+    "https"
+  ],  
   "definitions": {
     "CPF": {
       "type": "object",
