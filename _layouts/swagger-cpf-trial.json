@@ -41,8 +41,7 @@
           "200": {
             "description": "Retorna os dados da Pessoa Física",
             "schema": {
-              "$ref": "#/
-              /CPF"
+              "$ref": "#/definitions/CPF"
             }
           },
           "400": {
