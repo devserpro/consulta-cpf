@@ -22,6 +22,7 @@
   "paths": {
     "/cpf/{ni}": {
       "get": {
+        "summary": "Consulta CPF",
         "x-auth-type": "Application & Application User",
         "x-throttling-tier": "Unlimited",
         "description": "Retorna os dados do Cadastro de Pessoa Física (CPF)",
@@ -46,6 +47,12 @@
         "responses": {
           "200": {
             "description": "Retorna os dados da Pessoa Física",
+            "headers": {
+              "stamp": {
+                "type": "string",
+                "description": "Carimbo de Tempo"
+              }
+            },
             "schema": {
               "$ref": "#/definitions/CPF"
             }
