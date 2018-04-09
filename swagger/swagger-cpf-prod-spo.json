@@ -1,117 +1,117 @@
 {
-    "host": "gateway.apiserpro.serpro.gov.br",
-    "security": [
-        {
-            "Bearer": []
-        }
-    ],
-    "securityDefinitions": {
-        "Bearer": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
-        }
-    },
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "Consulta Massiva CPF (consulta-cpf)",
-        "description": "\nPara informações de como se autenticar antes de consumir as API, por favor, consulte a documentação em: https://servicos.serpro.gov.br/api-serpro/biblioteca/arquivos/como-autenticar-documentacao-api.pdf\n\nO serviço `Consulta Massiva CPF` é disponibilizado através do `HTTP REST` oferencendo operação de consulta às informações cadastrais de Pessoas Físicas no Brasil.\n## Códigos de Retorno\n| Código de retorno | Resumido | Explicação |\n| ------------- |:--------------------|:-----------------------------------------------------------------------------|\n| 200           | OK                  | Tudo funcionou como esperado e as informações de Pessoa Física foram disponibilizadas.                                               |\n| 400           | Requisição inválida | O Número de Inscrição do CPF informado não é válido. |\n| 404           | Não encontrado      | Não existe CPF com o Número de Inscrição informado |\n| 500           | Erro no servidor    | Ocorreu algum erro interno.      |\n| 503           | Serviço Indisponível     |  Algum serviço integrado ao Consulta Massiva CPF está indisponível no momento.                         |\n\n## Tipos de Campos Retornados\n\n| Tipos de campos | Valor de retorno |\n| ---------------------- | :------------------------------------------------------------- |\n| NI        | Número de Inscrição no Cadastro de Pessoa Física, no formato 99999999999 |\n| Nome     | Nome da Pessoa Física  |\n| Nascimento | Data de Nascimento da Pessoa Física, no formado DDMMAAAA  |\n| Ano de Óbito | Ano de Óbito da Pessoa Física, caso possua |\n| Situação | Situação Cadastral da Pessoa Física, formada por dois campos: Código e Descrição.|\n| Situação/Código | Código da Situação Cadastral da Pessoa Física |\n| Situação/Descrição | Descrição da Situação Cadastral da Pessoa Física |\n\n --------------------------\n \n \n ## Tipos de Situação Cadastral Retornados\n\n\n| Código | Descrição |\n| ---------------------- | :------------------------------------------------------------- |\n| 0 | Regular |\n| 1 | Cancelada por Encerramento de Espólio |\n| 2 | Suspensa  |\n| 3 | Titular Falecido  |\n| 4 | Pendente de Regularização |\n| 5 | Cancelada por Multiplicidade |\n| 8 | Nula |\n| 9 | Cancelada de Ofício |\n\n --------------------------     \n \n<br><br>\n## Solicitando assinatura com Carimbo de Tempo\n\n  Caso deseje que sua solicitação venha com uma assinatura de Carimbo de Tempo, basta incluir, no cabeçalho de sua requisição, a informação `x-signature: 1`.\n  \n  A assinatura será retornada no cabeçalho da resposta, com o nome `stamp`.\n\n<br>\n## Verificando assinatura com Carimbo de Tempo\n\n  Para verificar assinatura de carimbo de tempo, siga as instruções da documentação abaixo:\n  \n##### link-timestamp\n\n \n## Produção\n### Endereço de Produção\n \n    https://gateway.apiserpro.serpro.gov.br/consulta-cpf/v1/\n    \n## Degustação\n\n    \n\n### Endereço de Degustação\n\n    https://gateway.apiserpro.serpro.gov.br/consulta-cpf-trial/1/\n    \n### NI para Degustação\n| NI | Informações de Retorno |\n| ---------------------- | :------------------------------------------------------------- |\n| 40442820135 | CPF Regular |\n| 63017285995 | CPF Regular |\n| 91708635203 | CPF Regular  |\n| 47856021985 | Cancelada por Encerramento de Espólio  |\n| 23479805647 | Cancelada por Encerramento de Espólio |\n| 40532176871 | Suspensa |\n| 47123586964 | Suspensa |\n| 49852036700 | Cancelada por Õbito Sem Espólio |\n| 28769150494 | Cancelada por Õbito Sem Espólio |\n| 07691852312 | Pendente de Regularização |\n| 10975384600 | Pendente de Regularização |\n| 01648527949 | Cancelada por Multiplicidade |\n| 47893062592 | Cancelada por Multiplicidade |\n| 98302514705 | Nula |    \n| 18025346790 | Nula |\n| 64913872591 | Cancelada de Ofício |\n| 52389071686 | Cancelada de Ofício |\n| 05137518743 | Titular Falecido |\n| 08849979878 | Titular Falecido |\n| 58136053391 | Regular |    \n --------------------------     \n\n## Exemplo\n\n  #### Chamada\n  \n    https://gateway.apiserpro.serpro.gov.br/consulta-cpf-trial/1/cpf/40442820135\n    \n  #### Retorno\n  \n    {\n      \"ni\":\"40442820135\",\n      \"nome\":\"Nome do CPF 404.428.201-35\",\n      \"nascimento\":\"10021986\",\n      \"situacao\":\n      {\n        \"codigo\":\"0\",\n        \"descricao\":\"Regular\"\n      }\n    }"
-    },
-    "basePath": "/consulta-cpf/v1",
-    "paths": {
-        "/cpf/{ni}": {
-            "get": {
-                "summary": "Consulta CPF",
-                "x-auth-type": "Application & Application User",
-                "x-throttling-tier": "Unlimited",
-                "description": "Retorna os dados do Cadastro de Pessoa Física (CPF)",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "description": "Número de inscrição no CPF",
-                        "name": "ni",
-                        "type": "string",
-                        "required": true,
-                        "in": "path"
-                    },
-                    {
-                        "description": "Solicitação de assinatura de carimbo de tempo. Informe 1 para assinar, ou deixe em branco para não assinar.",
-                        "name": "x-signature",
-                        "in": "header",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Retorna os dados da Pessoa Física",
-                        "headers": {
-                            "stamp": {
-                                "type": "string",
-                                "description": "Carimbo de Tempo"
-                            }
-                        },
-                        "schema": {
-                            "$ref": "#/definitions/CPF"
-                        }
-                    },
-                    "400": {
-                        "description": "O número de CPF informado não é válido."
-                    },
-                    "404": {
-                        "description": "Não existe CPF com o número de inscrição informado."
-                    },
-                    "500": {
-                        "description": "Erro interno do Serviço"
-                    },
-                    "503": {
-                        "description": "Erro em algum serviço de integração utilizado pelo Consulta CPF"
-                    }
-                }
-            }
-        }
-    },
-    "consumes": [
-        "application/json"
-    ],
-    "schemes": [
-        "https"
-    ],
-    "definitions": {
-        "CPF": {
-            "type": "object",
-            "properties": {
-                "ni": {
-                    "type": "string",
-                    "description": "Ex: 99999999999"
-                },
-                "nome": {
-                    "type": "string",
-                    "description": "Ex: PESSOA FISICA DA SILVA"
-                },
-                "nascimento": {
-                    "type": "string",
-                    "description": "Ex: 31121980"
-                },
-                "situacao": {
-                    "properties": {
-                        "codigo": {
-                            "type": "string",
-                            "description": "Ex: 0"
-                        },
-                        "descricao": {
-                            "type": "string",
-                            "description": "Ex: REGULAR"
-                        }
-                    }
-                },
-                "obito": {
-                    "type": "string",
-                    "description": "Ex: 2012"
-                }
-            }
-        }
+  "host": "gateway.apiserpro.serpro.gov.br",
+  "security": [
+    {
+      "Bearer": []
     }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Consulta Massiva CPF (consulta-cpf)",
+    "description": "\nPara informações de como se autenticar antes de consumir as API, por favor, consulte a documentação em: https://servicos.serpro.gov.br/api-serpro/biblioteca/arquivos/como-autenticar-documentacao-api.pdf\n\nO serviço `Consulta Massiva CPF` é disponibilizado através do `HTTP REST` oferencendo operação de consulta às informações cadastrais de Pessoas Físicas no Brasil.\n## Códigos de Retorno\n| Código de retorno | Resumido | Explicação |\n| ------------- |:--------------------|:-----------------------------------------------------------------------------|\n| 200           | OK                  | Tudo funcionou como esperado e as informações de Pessoa Física foram disponibilizadas.                                               |\n| 400           | Requisição inválida | O Número de Inscrição do CPF informado não é válido. |\n| 404           | Não encontrado      | Não existe CPF com o Número de Inscrição informado |\n| 500           | Erro no servidor    | Ocorreu algum erro interno.      |\n| 503           | Serviço Indisponível     |  Algum serviço integrado ao Consulta Massiva CPF está indisponível no momento.                         |\n\n## Tipos de Campos Retornados\n\n| Tipos de campos | Valor de retorno |\n| ---------------------- | :------------------------------------------------------------- |\n| NI        | Número de Inscrição no Cadastro de Pessoa Física, no formato 99999999999 |\n| Nome     | Nome da Pessoa Física  |\n| Nascimento | Data de Nascimento da Pessoa Física, no formado DDMMAAAA  |\n| Ano de Óbito | Ano de Óbito da Pessoa Física, caso possua |\n| Situação | Situação Cadastral da Pessoa Física, formada por dois campos: Código e Descrição.|\n| Situação/Código | Código da Situação Cadastral da Pessoa Física |\n| Situação/Descrição | Descrição da Situação Cadastral da Pessoa Física |\n\n --------------------------\n \n \n ## Tipos de Situação Cadastral Retornados\n\n\n| Código | Descrição |\n| ---------------------- | :------------------------------------------------------------- |\n| 0 | Regular |\n| 1 | Cancelada por Encerramento de Espólio |\n| 2 | Suspensa  |\n| 3 | Titular Falecido  |\n| 4 | Pendente de Regularização |\n| 5 | Cancelada por Multiplicidade |\n| 8 | Nula |\n| 9 | Cancelada de Ofício |\n\n --------------------------     \n \n<br><br>\n## Solicitando assinatura com Carimbo de Tempo\n\n  Caso deseje que sua solicitação venha com uma assinatura de Carimbo de Tempo, basta incluir, no cabeçalho de sua requisição, a informação `x-signature: 1`.\n  \n  A assinatura será retornada no cabeçalho da resposta, com o nome `stamp`.\n\n<br>\n## Verificando assinatura com Carimbo de Tempo\n\n  Para verificar assinatura de carimbo de tempo, siga as instruções da documentação abaixo:\n  \n##### link-timestamp\n\n \n## Produção\n### Endereço de Produção\n \n    https://gateway.apiserpro.serpro.gov.br/consulta-cpf/v1/\n    \n## Degustação\n\n    \n\n### Endereço de Degustação\n\n    https://gateway.apiserpro.serpro.gov.br/consulta-cpf-trial/1/\n    "
+  },
+  "basePath": "/consulta-cpf/v1",
+  "paths": {
+    "/cpf/{ni}": {
+      "get": {
+        "summary": "Consulta CPF",
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "description": "Retorna os dados do Cadastro de Pessoa Física (CPF)\n### NI para Degustação\n| NI | Informações de Retorno |\n| ---------------------- | :------------------------------------------------------------- |\n| 40442820135 | CPF Regular |\n| 63017285995 | CPF Regular |\n| 91708635203 | CPF Regular  |\n| 47856021985 | Cancelada por Encerramento de Espólio  |\n| 23479805647 | Cancelada por Encerramento de Espólio |\n| 40532176871 | Suspensa |\n| 47123586964 | Suspensa |\n| 49852036700 | Cancelada por Õbito Sem Espólio |\n| 28769150494 | Cancelada por Õbito Sem Espólio |\n| 07691852312 | Pendente de Regularização |\n| 10975384600 | Pendente de Regularização |\n| 01648527949 | Cancelada por Multiplicidade |\n| 47893062592 | Cancelada por Multiplicidade |\n| 98302514705 | Nula |    \n| 18025346790 | Nula |\n| 64913872591 | Cancelada de Ofício |\n| 52389071686 | Cancelada de Ofício |\n| 05137518743 | Titular Falecido |\n| 08849979878 | Titular Falecido |\n| 58136053391 | Regular |    \n --------------------------     \n\n## Exemplo\n\n  #### Chamada\n  \n    https://apigateway.serpro.gov.br/consulta-cpf-trial/1/cpf/40442820135\n    \n  #### Retorno\n  \n    {\n      \"ni\":\"40442820135\",\n      \"nome\":\"Nome do CPF 404.428.201-35\",\n      \"nascimento\":\"10021986\",\n      \"situacao\":\n      {\n        \"codigo\":\"0\",\n        \"descricao\":\"Regular\"\n      }\n    }        ",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Número de inscrição no CPF",
+            "name": "ni",
+            "type": "string",
+            "required": true,
+            "in": "path"
+          },
+          {
+            "description": "Solicitação de assinatura de carimbo de tempo. Informe 1 para assinar, ou deixe em branco para não assinar.",
+            "name": "x-signature",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retorna os dados da Pessoa Física",
+            "headers": {
+              "stamp": {
+                "type": "string",
+                "description": "Carimbo de Tempo"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/CPF"
+            }
+          },
+          "400": {
+            "description": "O número de CPF informado não é válido."
+          },
+          "404": {
+            "description": "Não existe CPF com o número de inscrição informado."
+          },
+          "500": {
+            "description": "Erro interno do Serviço"
+          },
+          "503": {
+            "description": "Erro em algum serviço de integração utilizado pelo Consulta CPF"
+          }
+        }
+      }
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "definitions": {
+    "CPF": {
+      "type": "object",
+      "properties": {
+        "ni": {
+          "type": "string",
+          "description": "Ex: 99999999999"
+        },
+        "nome": {
+          "type": "string",
+          "description": "Ex: PESSOA FISICA DA SILVA"
+        },
+        "nascimento": {
+          "type": "string",
+          "description": "Ex: 31121980"
+        },
+        "situacao": {
+          "properties": {
+            "codigo": {
+              "type": "string",
+              "description": "Ex: 0"
+            },
+            "descricao": {
+              "type": "string",
+              "description": "Ex: REGULAR"
+            }
+          }
+        },
+        "obito": {
+          "type": "string",
+          "description": "Ex: 2012"
+        }
+      }
+    }
+  }
 }
